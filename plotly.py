@@ -142,7 +142,8 @@ from dash import no_update
 
 #external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash()
+app = dash.Dash(__name__)
+server = app.server
 
 app.layout = html.Div([
 
@@ -204,5 +205,5 @@ def update_output(keywords):
 
     return container, line_chart
 
-app.run_server(debug=False)
-
+if __name__ == '__main__':
+    app.run_server(debug=True)
