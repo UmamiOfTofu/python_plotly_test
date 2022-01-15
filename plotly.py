@@ -61,8 +61,8 @@ def get_daily(title):
 #fig.add_scatter(x=wu['date'], y=wu['article_n'], name='Wu') 
 
 #fig.update_layout(title='2021 PTT Baseball Articles associated to Big Wang/Wu',
-                   xaxis_title='Date',
-                   yaxis_title='Article')
+                   #xaxis_title='Date',
+                   #yaxis_title='Article')
 
 #fig.show()
 
@@ -128,7 +128,7 @@ def get_daily(title):
 #! pip install jupyter-dash -q
 #! pip install dash-cytoscape -q
 
-from jupyter_dash import JupyterDash  # pip install dash
+#from jupyter_dash import JupyterDash  # pip install dash
 import dash
 import dash_cytoscape as cyto  # pip install dash-cytoscape==0.2.0 or higher
 import dash_html_components as html
