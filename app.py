@@ -47,7 +47,7 @@ def get_daily(title):
 app.layout = html.Div([
 
   html.H1(
-        children='2021 PTT Baseball Article Titles Analysis',
+        children='2021 PTT Baseball 文章標題小分析',
         style={
             'textAlign': 'center'
         }
@@ -93,11 +93,16 @@ app.layout = html.Div([
 def update_output(keywords):
   #if clicks is not None:
     #print(clicks, keywords)
-    container = 'You entered: {}'.format(keywords)
-    
+
     data = get_daily(keywords)
+    container = '該關鍵字共有： {}'.format(data['article_n'].sum()) + ' 篇文章'
+    
+    
     line_chart = px.line()
     line_chart.add_scatter(x=data['date'], y=data['article_n'])
+    line_chart.update_layout(title='簡易 2021 PTT Baseball 文章數互動時序圖',
+                   xaxis_title='日期',
+                   yaxis_title='文章數')
 
     return container, line_chart
 
