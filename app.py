@@ -124,7 +124,7 @@ app.layout = html.Div([
 
 ])
 
-"""
+
 @app.callback(
     [
       Output(component_id = 'output_container', component_property = 'children'),
@@ -153,14 +153,17 @@ def update_output(keywords):
     
 
     return container, line_chart
-"""
+
 
 @app.callback(
-    [  
-     Output(component_id = 'output_daily_2', component_property = 'figure')
-     ],
+    [
+      #Output(component_id = 'output_container', component_property = 'children'),
+      #Output(component_id = 'output_daily', component_property = 'figure'),
+      Output(component_id = 'output_daily_2', component_property = 'figure')
+        ],
     [
      #Input(component_id = 'submit-button', component_property = 'n_clicks'),
+     #Input(component_id = 'input_keywords', component_property = 'value'),
      Input(component_id = 'input_keywords_d_1', component_property = 'value'),
      Input(component_id = 'input_keywords_d_2', component_property = 'value')
      ]
@@ -169,15 +172,25 @@ def update_output(keywords):
 #def update_output(clicks, keywords):
 def update_output_d(keywords_d_1, keywords_d_2):
   #if clicks is not None:
-    #print(clicks, keywords)    
+    #print(clicks, keywords)
+
+    #data = get_daily(keywords)
+    #container = '該關鍵字共有： {}'.format(str(data['article_n'].sum())) + ' 篇文章'
+    
+    
+    #line_chart = px.line()
+    #line_chart.add_scatter(x=data['date'], y=data['article_n'])
+    #line_chart.update_layout(title='簡易 2021 PTT Baseball 文章數互動時序圖',
+                   #xaxis_title='日期',
+                   #yaxis_title='文章數')
 
     data_d_1 = get_daily(keywords_d_1)
     data_d_2 = get_daily(keywords_d_2)
 
     line_chart_2 = px.line()
-    line_chart_2.add_scatter(x=data_d_1['date'], y=data_d_1['article_n'], name = '關鍵字1')
-    line_chart_2.add_scatter(x=data_d_2['date'], y=data_d_2['article_n'], name = '關鍵字2')
-    line_chart_2.update_layout(title='2021 PTT Baseball 文章數互動雙線時序圖',
+    line_chart_2.add_scatter(x=data_d_1['date'], y=data_d_1['article_n'])
+    line_chart_2.add_scatter(x=data_d_2['date'], y=data_d_2['article_n'])
+    line_chart_2.update_layout(title='簡易 2021 PTT Baseball 文章數互動雙線時序圖',
                    xaxis_title='日期',
                    yaxis_title='文章數')
 
