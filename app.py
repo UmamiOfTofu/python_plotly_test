@@ -9,6 +9,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__)
+app.title = '2021 PTT Baseball 文章標題時序圖'
 server = app.server
 
 df = pd.read_csv('news1year.csv',encoding='utf-8')
@@ -45,12 +46,12 @@ def get_daily(title):
   return(fubon_daily)
 
 
-instruction = ['請於時序圖左上角之文字格輸入欲搜尋的關鍵字', '若欲同時搜尋多個詞，請用 "|" 符號作為間隔，例如：富邦|悍將|邦邦', '若欲搜尋特定文章分類，請用 "\[" 及 "\]" 將其包住，例如：\[炸裂\]']
+instruction = ['請於時序圖左上角之文字格輸入欲搜尋的關鍵字', '若欲同時搜尋多個詞，請用 | 符號作為間隔，例如：富邦|悍將|邦邦', '若欲搜尋特定文章分類，請用 \[ 及 \] 將其包住，例如：\[炸裂\]']
 
 app.layout = html.Div([
 
   html.H1(
-        children='2021 PTT Baseball 文章標題小分析',
+        children='2021 PTT Baseball 文章標題時序圖',
         style={
             'textAlign': 'center'
         }
@@ -60,6 +61,7 @@ app.layout = html.Div([
     html.Div(
         
         children=[
+            html.P('使用說明：'),
             html.Ul(id='list', children=[html.Li(i) for i in instruction])
         ]
     ),
@@ -67,6 +69,8 @@ app.layout = html.Div([
     html.Hr(),
 
     
+    html.Br(),
+
     dcc.Input(
             id="input_keywords", type="text", placeholder="請輸入關鍵字"
         ),
@@ -84,11 +88,11 @@ app.layout = html.Div([
 
     html.Br(),
 
-    dcc.Graph(id = 'output_daily', figure={}),
+    dcc.Graph(id = 'output_daily', figure={})
 
 
     ####################################################
-
+"""
     html.Hr(),
 
     html.Br(),
@@ -119,7 +123,7 @@ app.layout = html.Div([
     html.Br(),
 
     dcc.Graph(id = 'output_daily_2', figure={})                     
-
+"""
       
 
 ])
@@ -154,7 +158,7 @@ def update_output(keywords):
 
     return container, line_chart
 
-
+"""
 @app.callback(
     [
       #Output(component_id = 'output_container', component_property = 'children'),
@@ -195,7 +199,7 @@ def update_output_d(keywords_d_1, keywords_d_2):
                    yaxis_title='文章數')
 
     return line_chart_2
-
+"""
 
 
 if __name__ == '__main__':
