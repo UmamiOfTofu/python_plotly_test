@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 import plotly.express as px
 
@@ -46,7 +45,7 @@ def get_daily(title):
   return(fubon_daily)
 
 
-instruction = ['請於時序圖左上角之文字格輸入欲搜尋的關鍵字', '若欲同時搜尋多個詞，請用 | 符號作為間隔，例如：富邦|悍將|邦邦', '若欲搜尋特定文章分類，請用 \[ 及 \] 將其包住，例如：\[炸裂\]']
+instruction = ['請於下方文字格輸入欲搜尋之關鍵字', '若欲同時搜尋多個詞，請用 | 符號作為間隔，例如：富邦|悍將|邦邦', '若欲搜尋特定文章分類，請用 \[ 及 \] 將其包住，例如：\[炸裂\]', '將游標移至時序圖線上即可顯示該日期之文章篇數']
 
 app.layout = html.Div([
 
@@ -111,7 +110,7 @@ def update_output(keywords):
     #print(clicks, keywords)
 
     data = get_daily(keywords)
-    container = '該關鍵字共有： {}'.format(data['article_n'].sum().item()) + ' 篇文章'
+    container = '該關鍵字共有： {}'.format(int(data['article_n'].sum())) + ' 篇文章'
     
     
     line_chart = px.line()
