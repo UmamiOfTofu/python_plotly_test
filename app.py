@@ -44,6 +44,8 @@ def get_daily(title):
   return(fubon_daily)
 
 
+instruction = ['請於時序圖左上角之文字格輸入欲搜尋的關鍵字', '若欲同時搜尋多個詞，請用 "|" 符號作為間隔，例如：富邦|悍將|邦邦', '若欲搜尋特定文章分類，請用 "\[" 及 "\]" 將其包住，例如：\[炸裂\]']
+
 app.layout = html.Div([
 
   html.H1(
@@ -52,6 +54,16 @@ app.layout = html.Div([
             'textAlign': 'center'
         }
     ),
+
+    
+    html.Div(
+        
+        children=[
+            html.Ul(id='list', children=[html.Li(i) for i in instruction])
+        ]
+    ),
+
+    html.Hr(),
 
     
     dcc.Input(
