@@ -124,7 +124,7 @@ app.layout = html.Div([
 
 ])
 
-
+"""
 @app.callback(
     [
       Output(component_id = 'output_container', component_property = 'children'),
@@ -153,7 +153,7 @@ def update_output(keywords):
     
 
     return container, line_chart
-
+"""
 
 @app.callback(
     [  
