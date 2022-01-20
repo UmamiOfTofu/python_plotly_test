@@ -175,8 +175,8 @@ def update_output_2(keywords_d_1, keywords_d_2):
     data_d_2 = get_daily(keywords_d_2)
 
     line_chart_2 = px.line()
-    line_chart_2.add_scatter(x=data_d_1['date'], y=data_d_1['article_n'], name = keywords_d_1)
-    line_chart_2.add_scatter(x=data_d_2['date'], y=data_d_2['article_n'], name = keywords_d_2)
+    line_chart_2.add_scatter(x=data_d_1['date'], y=data_d_1['article_n'], name = '關鍵字1')
+    line_chart_2.add_scatter(x=data_d_2['date'], y=data_d_2['article_n'], name = '關鍵字2')
     line_chart_2.update_layout(title='2021 PTT Baseball 文章數互動雙線時序圖',
                    xaxis_title='日期',
                    yaxis_title='文章數')
