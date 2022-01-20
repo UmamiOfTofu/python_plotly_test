@@ -167,7 +167,7 @@ def update_output(keywords):
       )
 
 #def update_output(clicks, keywords):
-def update_output_2(keywords_d_1, keywords_d_2):
+def update_output_d(keywords_d_1, keywords_d_2):
   #if clicks is not None:
     #print(clicks, keywords)    
 
