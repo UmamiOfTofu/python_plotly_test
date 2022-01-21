@@ -98,14 +98,14 @@ app.layout = html.Div([
     
     html.P('第一個關鍵字：'),
     dcc.Input(
-            id="input_keywords_d_1", type="text", placeholder="請輸入關鍵字"
+            id="input_keywords_d_1", type="text", placeholder="請輸入關鍵字", value = '王柏融|大王'
         ),
     
     html.Br(),
     
     html.P('第二個關鍵字：'),
     dcc.Input(
-            id="input_keywords_d_2", type="text", placeholder="請輸入關鍵字"
+            id="input_keywords_d_2", type="text", placeholder="請輸入關鍵字", value = '吳念庭'
         ),
 
     html.Br(),
